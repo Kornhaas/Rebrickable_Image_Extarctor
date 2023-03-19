@@ -16,7 +16,7 @@ CURRENTBASEDIR = os.path.dirname(os.path.abspath(
 
 
 def click_on_image(image):
-    image = "D:/Python/htmltocsv/img/" + image
+    image = CURRENTBASEDIR + "/img/" + image
     ic(image)
     r = None
     while r is None:
