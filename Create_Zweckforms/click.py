@@ -11,48 +11,54 @@ from icecream import ic
 time.sleep(5)
 print(pyautogui.position())
 
+
 CURRENTBASEDIR = os.path.dirname(os.path.abspath(
     inspect.getfile(inspect.currentframe())))
 
 
 def click_on_image(image):
-    image = CURRENTBASEDIR + "/img/" + image
+    image = CURRENTBASEDIR + "\\img\\" + image
     ic(image)
-    r = None
-    while r is None:
+    location = None
+    while location is None:
         try:
             time.sleep(1)
             location = pyautogui.locateOnScreen(image)
-            break
+            ic(location)
         except Exception as e:
-            r = None
-            ic(r)
+            ic(e)
+            location = None
+            
 
+        if location != None:
+            break
 
     ic(location)
     pyautogui.click(location)
 
 def check_and_click_on_image(image):
-    image = "D:/Python/htmltocsv/img/" + image
+    image = CURRENTBASEDIR + "\\img\\" +image
     ic(image)
     
-    for i in range(1, 5):
+    for i in range(1, 3):
         location = pyautogui.locateOnScreen(image)
         ic(location)
+        if location != None:
+            break
         time.sleep(1)
         i += 1
 
-    ic(location)
     if location != None:
-        for i in range(1, 5):
-            click_on_image("ok.png")
-            time.sleep(5)
-            i += 1
+        click_on_image("ok.png")
+            
 
 
-for number in range(752, 1000+1):
+for number in range(441, 480+1):
+    if (number-1)%40 == 0:
+        print("Page Jump Long sleep")
+        time.sleep(120)    
+
     time.sleep(1)
-
     print("select picture")
     click_on_image("picture1.png")
     #time.sleep(1)
@@ -66,7 +72,8 @@ for number in range(752, 1000+1):
     click_on_image("searchfile.png")
     time.sleep(1)
 
-    print("select input line")
+    print("select input line number : " + str(number))
+    
     time.sleep(1)
     pyautogui.write('{0:04}'.format(number))
     time.sleep(0.5)
@@ -75,13 +82,13 @@ for number in range(752, 1000+1):
     pyautogui.typewrite(["enter"])
     time.sleep(0.5)
 
-    print("open")
-    click_on_image("open.png")
+    #print("open")
+    #click_on_image("open.png")
     time.sleep(5)
     
     # Warnung druck optimierung
     check_and_click_on_image("print.png")
-    time.sleep(5)
+    time.sleep(1)
     
     print("next page")
-    click_on_image("next.png")
+    click_on_image("_next.png")

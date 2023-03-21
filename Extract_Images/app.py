@@ -11,7 +11,7 @@ import os
 CURRENTBASEDIR = os.path.dirname(os.path.abspath(
     inspect.getfile(inspect.currentframe())))
 
-brickstype = "Minifig_Accessories"
+brickstype = "Plants_and_Animals"
 
 try:
     os.mkdir("d:\lego\\" + brickstype)
@@ -22,7 +22,7 @@ except FileExistsError:
 
 lookup = pd.read_csv(CURRENTBASEDIR + "\\lookup.csv")
 
-url = "https://rebrickable.com/parts/?format=table&csrfmiddlewaretoken=Owzzv98lYndlD5PiZGsqHiowEGilVhNNMcARQV1NDAsf3Q7rkpdoGjpFenDxIIdz&get_drill_downs=&min_year=1945&max_year=2023&min_part_cost=0&max_part_cost=20&q=&part_cat=27&exists_in_color=&_=1678389560175&parts_page_size=500&page=2&csrfmiddlewaretoken=Owzzv98lYndlD5PiZGsqHiowEGilVhNNMcARQV1NDAsf3Q7rkpdoGjpFenDxIIdz&get_drill_downs=&min_year=1945&max_year=2023&min_part_cost=0&max_part_cost=20&q=&part_cat=27&exists_in_color=&_=1678389560175&parts_page_size=1000"
+url = "https://rebrickable.com/parts/?format=table&csrfmiddlewaretoken=EPGKyNnHP6vde32wcYPq9jllJ5ZpFKSLD91T46TOVqfGJfIUK8DGZ5reN8jWbbvk&get_drill_downs=&min_year=1945&max_year=2023&min_part_cost=0&max_part_cost=20&q=&part_cat=28&exists_in_color=&_=1679299582064&csrfmiddlewaretoken=EPGKyNnHP6vde32wcYPq9jllJ5ZpFKSLD91T46TOVqfGJfIUK8DGZ5reN8jWbbvk&get_drill_downs=&min_year=1945&max_year=2023&min_part_cost=0&max_part_cost=20&q=&part_cat=28&exists_in_color=&_=1679299582064"
 request_site = Request(url, headers={"User-Agent": "Mozilla/5.0"})
 webpage = urlopen(request_site).read()
 # ic(webpage)
